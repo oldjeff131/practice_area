@@ -1,0 +1,26 @@
+import tkinter as tk
+from tkinter import *
+win=tk.Tk()
+win.title('測試')
+win.geometry('1000x500')
+win.resizable(False, False)
+b = tk.Button(win, text='ADD', font=('Arial', 12), width=10, height=1,bg='yellow')
+b.pack()
+frame = tk.Treeview(win)
+frame.place(x=0, y=10, width=700, height=400)
+tree = tk.Treeview(frame,columns=('c1', 'c2', 'c3', 'c4', 'c5'),show="headings",yscrollcommand=tk.scrollBar.set)
+tree.column('c1', width=40, anchor='center')
+tree.column('c2', width=40, anchor='center')
+tree.column('c3', width=40, anchor='center')
+tree.column('c4', width=100, anchor='center')
+tree.column('c5', width=100, anchor='center')
+tree.heading('c1', text='編號')
+tree.heading('c2', text='性別')
+tree.heading('c3', text='危險程度')
+tree.heading('c4', text='醫院')
+tree.heading('c5', text='備註')
+tree.pack(side=tk.LEFT, fill=tk.Y)
+def treeviewClick(event):
+    pass
+tree.bind('<Button-1>', treeviewClick)
+win.mainloop()
